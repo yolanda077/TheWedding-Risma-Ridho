@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding of Risma & Ridho</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #5d7a97;
+            --secondary: #c5a059;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            overflow: hidden; 
+        }
+
+        .cover {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            /* --- BAGIAN BACKGROUND --- */
+            /* Pastikan file 'background.jpg' ada di satu folder dengan file html ini */
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('img/bac.jpeg') center/cover no-repeat;
+            /* ------------------------- */
+        }
+        
+       .cover-frame {
+            /* Ganti background blur menjadi gambar pengantin */
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), 
+                        url('img/pengantin1.jpg') center/cover no-repeat;
+            
+            padding: 50px 30px;
+            /* Bentuk lengkungan tetap dipertahankan */
+            border-radius: 200px 200px 20px 20px; 
+            border: 2px solid var(--secondary);
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+            color: white;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            
+            /* Memastikan konten di atas gambar tetap terbaca */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 500px; /* Menambah tinggi agar foto terlihat lebih proporsional */
+        }
+        .cover h2 { font-family: 'Cinzel', serif; font-size: 0.8rem; letter-spacing: 4px; margin-bottom: 15px; font-weight: 400; }
+        .cover h1 { font-family: 'Great Vibes', cursive; font-size: 3.5rem; color: var(--secondary); line-height: 1.2; margin: 10px 0; }
+        .wedding-date { font-family: 'Montserrat', sans-serif; font-size: 1rem; letter-spacing: 3px; margin-bottom: 35px; }
+
+        .recipient-box { margin-bottom: 30px; }
+        .to { font-size: 0.85rem; margin-bottom: 10px; font-weight: 300; }
+        .guest-name { 
+            font-size: 1.4rem; 
+            font-weight: 600; 
+            color: var(--white); 
+            display: block;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+            padding-bottom: 8px;
+            margin: 0 20px 8px 20px;
+        }
+        .at-place { font-size: 0.85rem; font-style: italic; opacity: 0.9; }
+        
+        .save-date-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-family: 'Cinzel';
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+            transition: 0.3s ease;
+            font-weight: bold;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            margin-top: 15px;
+        }
+
+        .save-date-btn:hover { transform: scale(1.05); background: var(--secondary); }
+    </style>
+</head>
+<body>
+
+    <div class="cover">
+        <div class="cover-frame" data-aos="fade-up">
+            <h2>THE WEDDING OF</h2>
+            
+            <h1>Risma <br> & Ridho</h1>
+            
+            <div class="wedding-date">26 . 04 . 2026</div>
+
+            <div class="recipient-box" data-aos="zoom-in" data-aos-delay="500">
+                <p class="to">Kepada Yth. Bapak/Ibu/Saudara/i</p>
+                <span class="guest-name" id="guestName">Nama Tamu</span>
+                <p class="at-place">Di Tempat</p>
+            </div>
+
+            <a href="undangan.html" class="save-date-btn">Buka Undangan</a>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1500, once: true });
+
+        // Script agar nama tamu otomatis berubah jika ada link khusus
+        const urlParams = new URLSearchParams(window.location.search);
+        const nama = urlParams.get('to');
+        if (nama) {
+            document.getElementById('guestName').innerText = nama;
+        }
+    </script>
+</body>
+</html>
